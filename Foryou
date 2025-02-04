@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Will you be my Valentine?</h1>
+        <button id="yesButton">Yes</button>
+        <button id="noButton">No</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8d7da;
+    text-align: center;
+    padding: 50px;
+}
+
+h1 {
+    color: #9b1c31;
+}
+
+button {
+    background-color: #9b1c31;
+    color: white;
+    font-size: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+button:hover {
+    background-color: #e56b6f;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+// script.js
+document.getElementById("noButton").addEventListener("click", function() {
+    let button = document.getElementById("noButton");
+    let randomX = Math.floor(Math.random() * window.innerWidth) - button.clientWidth;
+    let randomY = Math.floor(Math.random() * window.innerHeight) - button.clientHeight;
+    button.style.position = 'absolute';
+    button.style.left = randomX + 'px';
+    button.style.top = randomY + 'px';
+});
+
+document.getElementById("yesButton").addEventListener("click", function() {
+    alert("Yay! You said yes! 💖");
+
+    // Send the email (this requires a backend solution or a service like Formspree)
+    // For now, we'll use a simulated email-send function.
+    sendEmailToMyGmail();
+});
+
+// This is a mockup function to simulate sending an email.
+function sendEmailToMyGmail() {
+    window.location.href = 'mailto:your-email@example.com?subject=Valentine&body=They said Yes! 💖';
+}
